@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "Run http-server",
+            "program": "npx",
+            "args": ["http-server"],
+        },
+        {
+            "type": "command",
+            "name": "Build Wasm",
+            "program": "wasm-pack",
+            "args": ["build", "--target", "web"],
+            "workingDir": "mandelbrotlib",
+        },
+    ]
+}
