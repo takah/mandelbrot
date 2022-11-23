@@ -2,13 +2,8 @@ import Mandelbrot from "./mandelbrot.js"
 import init, { color } from "./mandelbrotlib/pkg/mandelbrotlib.js"
 
 export default class MandelbrotRust extends Mandelbrot {
-    doDraw() {
-        init().then(() => {
-            this.drawing()
-        })
-    }
-
-    drawing() {
+    async doDraw() {
+        await init()
         for (let i=0; i<this.pixel; i++) {
             for (let j=0; j<this.pixel; j++) {
                 let re = i*this.scale/this.pixel - this.scale/2 + this.centerX

@@ -9,12 +9,12 @@
     <div class="column">
         <h2>JavaScript</h2>
         <canvas id="canvas_for_js" width="200" height="200" style="border: solid 1px black; width: 400px; height: 400px;"></canvas>
-        <p id="time_of_js">...... ms</p>
+        <p id="time_of_js">---- ms</p>
     </div>
     <div class="column">
         <h2>Rust</h2>
         <canvas id="canvas_for_rust" width="200" height="200" style="border: solid 1px black; width: 400px; height: 400px;"></canvas>
-        <p id="time_of_rust">...... ms</p>
+        <p id="time_of_rust">---- ms</p>
         </div>
 </div>
 <button onclick="draw">Draw</button>
@@ -29,12 +29,12 @@ function showTimeElapsed(id, timeElapsed) {
 import MandelbrotJS from "./mandelbrot_js.js"
 import MandelbrotRust from "./mandelbrot_rust.js"
 
-//const js = new MandelbrotJS("canvas_for_js", 200, 3, 0, 0)
-//js.draw()
-//showTimeElapsed("time_of_js", js.timeElapsed)
+const js = new MandelbrotJS("canvas_for_js", 200, 3, 0, 0)
+await js.draw()
+showTimeElapsed("time_of_js", js.timeElapsed)
 
 const rust = new MandelbrotRust("canvas_for_rust", 200, 3, 0, 0)
-rust.draw()
+await rust.draw()
 showTimeElapsed("time_of_rust", rust.timeElapsed)
 </script>
 </body>

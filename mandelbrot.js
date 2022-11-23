@@ -10,9 +10,9 @@ export default class Mandelbrot {
         this.timeElapsed = null
     }
 
-    draw() {
+    async draw() {
         this.beforeDraw()
-        this.doDraw()
+        await this.doDraw()
         this.afterDraw()
     }
 

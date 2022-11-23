@@ -1,7 +1,7 @@
 import Mandelbrot from "./mandelbrot.js"
 
 export default class MandelbrotJS extends Mandelbrot {
-    doDraw() {
+    async doDraw() {
         for (let i = 0; i < this.pixel; i++) {
             for (let j = 0; j < this.pixel; j++) {
                 let re = i * this.scale / this.pixel - this.scale / 2 + this.centerX
