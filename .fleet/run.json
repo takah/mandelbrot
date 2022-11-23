@@ -11,7 +11,7 @@
             "name": "Build Wasm",
             "program": "wasm-pack",
             "args": ["build", "--target", "web"],
-            "workingDir": "mandelbrotlib",
+            "workingDir": "rust",
         },
     ]
 }

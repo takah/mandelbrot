@@ -1,5 +1,5 @@
 import Mandelbrot from "./mandelbrot.js"
-import init, { color } from "./mandelbrotlib/pkg/mandelbrotlib.js"
+import init, { color } from "./rust/pkg/mandelbrotlib.js"
 
 export default class MandelbrotRust extends Mandelbrot {
     async doDraw() {
