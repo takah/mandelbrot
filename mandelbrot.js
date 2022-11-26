@@ -1,7 +1,5 @@
 export default class Mandelbrot {
-    constructor(canvasId, pixel, scale, centerX, centerY) {
-        this.canvas = document.getElementById(canvasId)
-        this.ctx = this.canvas.getContext("2d")
+    constructor(pixel, scale, centerX, centerY) {
         this.pixel = pixel
         this.scale = scale
         this.centerX = centerX

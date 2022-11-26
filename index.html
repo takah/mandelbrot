@@ -13,9 +13,9 @@
     </div>
     <div class="column">
         <h2>Rust</h2>
-        <canvas id="canvas_for_rust" width="200" height="200" style="border: solid 1px black; width: 400px; height: 400px;"></canvas>
+        <img id="xxx" src="" style="width: 400px; height: 400px;" />
         <p id="time_of_rust">---- ms</p>
-        </div>
+    </div>
 </div>
 <button onclick="draw">Draw</button>
 
@@ -33,7 +33,7 @@ const js = new MandelbrotJS("canvas_for_js", 200, 3, 0, 0)
 await js.draw()
 showTimeElapsed("time_of_js", js.timeElapsed)
 
-const rust = new MandelbrotRust("canvas_for_rust", 200, 3, 0, 0)
+const rust = new MandelbrotRust("image_for_rust", 200, 3, 0, 0)
 await rust.draw()
 showTimeElapsed("time_of_rust", rust.timeElapsed)
 </script>

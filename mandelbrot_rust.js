@@ -1,30 +1,16 @@
 import Mandelbrot from "./mandelbrot.js"
-import init, { color } from "./rust/pkg/mandelbrotlib.js"
+import init, { color, xxx } from "./rust/pkg/rust.js"
 
 export default class MandelbrotRust extends Mandelbrot {
-    async doDraw() {
-        await init()
-        for (let i=0; i<this.pixel; i++) {
-            for (let j=0; j<this.pixel; j++) {
-                let re = i*this.scale/this.pixel - this.scale/2 + this.centerX
-                let im = j*this.scale/this.pixel - this.scale/2 + this.centerY
-                this.drawPoint(i, j, color(re, im), this.ctx)
-            }
-        }
+    constructor(imageId, pixel, scale, centerX, centerY) {
+        super(pixel, scale, centerX, centerY)
     }
 
-    drawPoint(x, y, color) {
-        let image = this.ctx.createImageData(1, 1)
-        if (color) {
-            image.data[0] = 0
-            image.data[1] = 0
-            image.data[2] = 0
-        } else {
-            image.data[0] = 255
-            image.data[1] = 255
-            image.data[2] = 255
-        }
-        image.data[3] = 255
-        this.ctx.putImageData(image, x, y)
+    async doDraw() {
+        await init()
+        const data = xxx(200, 3, 0, 0)
+        const blob = new Blob([data])
+        const url = URL.createObjectURL(blob)
+        document.getElementById("xxx").setAttribute("src", url)
     }
 }

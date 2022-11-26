@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    margin: 50px;
 }
 
 h1, h2, p {
@@ -8,6 +9,7 @@ h1, h2, p {
 
 canvas {
     outline: solid 1px white;
+    background-color: white;
 }
 
 .row {
