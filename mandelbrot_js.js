@@ -8,24 +8,24 @@ export default class MandelbrotJS extends Mandelbrot {
     }
 
     async doDraw() {
-//        for (let i = 0; i < this.pixel; i++) {
-//            for (let j = 0; j < this.pixel; j++) {
-//                let re = i * this.scale / this.pixel - this.scale / 2 + this.centerX
-//                let im = j * this.scale / this.pixel - this.scale / 2 + this.centerY
-//                this.drawPoint(i, j, this.color(re, im))
-//            }
-//        }
+        for (let x = 0; x < this.pixel; x++) {
+            for (let y = 0; y < this.pixel; y++) {
+                let cRe = x * this.scale / this.pixel - this.scale / 2 + this.centerX
+                let cIm = y * this.scale / this.pixel - this.scale / 2 + this.centerY
+                this.drawPoint(x, y, this.color(cRe, cIm))
+            }
+        }
     }
 
-    color(re, im) {
-        let r = 0
-        let i = 0
+    color(cRe, cIm) {
+        let re = 0
+        let im = 0
         for (let n = 0; n < 50; n++) {
-            let rNew = r * r - i * i + re
-            let iNew = 2 * r * i + im
-            r = rNew
-            i = iNew
-            let distance = r * r + i * i
+            let reNew = re * re - im * im + cRe
+            let imNew = 2 * re * im + cIm
+            re = reNew
+            im = imNew
+            let distance = re * re + im * im
             if (distance > 4) {
                 return [n / 50 * 255, 255 / (1 + Math.exp(-Math.log(distance))), 0] // diverge
             }
