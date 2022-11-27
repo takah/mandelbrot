@@ -4,22 +4,7 @@ use std::io::Cursor;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-extern {
-    pub fn alert(s: &str);
-}
-
-#[wasm_bindgen]
-pub fn greet(name: &str) {
-    alert(&format!("Hello, {}!", name));
-}
-
-#[wasm_bindgen]
-pub fn greet2(name: &str) {
-    alert(&format!("Hello2, {}!", name));
-}
-
-#[wasm_bindgen]
-pub fn xxx(pixel: u32, scale: f64, center_x: f64, center_y: f64) -> Vec<u8> {
+pub fn calc(pixel: u32, scale: f64, center_x: f64, center_y: f64) -> Vec<u8> {
     let mut image: RgbImage = ImageBuffer::new(200, 200);
     for i in 0..pixel {
         for j in 0..pixel {
@@ -37,7 +22,6 @@ pub fn xxx(pixel: u32, scale: f64, center_x: f64, center_y: f64) -> Vec<u8> {
     return buffer;
 }
 
-#[wasm_bindgen]
 pub fn color(re: f64, im: f64) -> u8 {
     let mut n = 0;
     let mut r: f64 = 0.0;

@@ -8,13 +8,13 @@ export default class MandelbrotJS extends Mandelbrot {
     }
 
     async doDraw() {
-        for (let i = 0; i < this.pixel; i++) {
-            for (let j = 0; j < this.pixel; j++) {
-                let re = i * this.scale / this.pixel - this.scale / 2 + this.centerX
-                let im = j * this.scale / this.pixel - this.scale / 2 + this.centerY
-                this.drawPoint(i, j, this.color(re, im))
-            }
-        }
+//        for (let i = 0; i < this.pixel; i++) {
+//            for (let j = 0; j < this.pixel; j++) {
+//                let re = i * this.scale / this.pixel - this.scale / 2 + this.centerX
+//                let im = j * this.scale / this.pixel - this.scale / 2 + this.centerY
+//                this.drawPoint(i, j, this.color(re, im))
+//            }
+//        }
     }
 
     color(re, im) {
