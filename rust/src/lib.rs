@@ -33,7 +33,11 @@ pub fn color(c_re: f64, c_im: f64) -> [u8; 3] {
         im = new_im;
         let distance = re*re + im*im;
         if distance > 4.0 {
-            return [255, 255, 255];
+            return [
+                (((n as f64)/50.0) * 255.0) as u8,
+                (255.0 / (1.0+((-distance.ln()).exp()))) as u8,
+                0
+            ];
         }
         n += 1;
     }
