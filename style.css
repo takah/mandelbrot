@@ -7,6 +7,10 @@ h1, h2, p {
     color: white;
 }
 
+p {
+    font-size: 30px;
+}
+
 canvas {
     outline: solid 1px white;
     background-color: white;

@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" href="style.css"/>
 </head>
+<script type="module">
+</script>
 <body>
 <h1>Mandelbrot set</h1>
 <div class="row">
@@ -10,32 +12,38 @@
         <h2>JavaScript</h2>
         <canvas id="canvas_for_js" width="200" height="200" style="border: solid 1px black; width: 400px; height: 400px;"></canvas>
         <p id="time_of_js">---- ms</p>
+        <button id="draw_js_button">Draw</button>
     </div>
     <div class="column">
         <h2>Rust</h2>
-        <img id="img_for_rust" src="" style="width: 400px; height: 400px;" />
+        <canvas id="canvas_for_rust" width="200" height="200" style="border: solid 1px black; width: 400px; height: 400px;"></canvas>
         <p id="time_of_rust">---- ms</p>
+        <button id="draw_rust_button">Draw</button>
     </div>
 </div>
-<button onclick="draw">Draw</button>
-
-<script type="text/javascript">
-function showTimeElapsed(id, timeElapsed) {
-    document.getElementById(id).innerText = timeElapsed + " ms"
-}
-</script>
 
 <script type="module">
 import MandelbrotJS from "./mandelbrot_js.js"
 import MandelbrotRust from "./mandelbrot_rust.js"
 
-const js = new MandelbrotJS("canvas_for_js", 200, 3, 0, 0)
-await js.draw()
-showTimeElapsed("time_of_js", js.timeElapsed)
+document.getElementById("draw_js_button").onclick = drawJS
+document.getElementById("draw_rust_button").onclick = drawRust
 
-const rust = new MandelbrotRust("img_for_rust", 200, 3, 0, 0)
-await rust.draw()
-showTimeElapsed("time_of_rust", rust.timeElapsed)
+function showTimeElapsed(id, timeElapsed) {
+    document.getElementById(id).innerText = timeElapsed + " ms"
+}
+
+async function drawJS() {
+    const js = new MandelbrotJS("canvas_for_js", 200, 3, 0, 0)
+    await js.draw()
+    showTimeElapsed("time_of_js", js.timeElapsed)
+}
+
+async function drawRust() {
+    const rust = new MandelbrotRust("img_for_rust", 200, 3, 0, 0)
+    await rust.draw()
+    showTimeElapsed("time_of_rust", rust.timeElapsed)
+}
 </script>
 </body>
 </html>

@@ -1,12 +1,6 @@
 import Mandelbrot from "./mandelbrot.js"
 
 export default class MandelbrotJS extends Mandelbrot {
-    constructor(canvasId, pixel, scale, centerX, centerY) {
-        super(pixel, scale, centerX, centerY)
-        this.canvas = document.getElementById(canvasId)
-        this.ctx = this.canvas.getContext("2d")
-    }
-
     async doDraw() {
         for (let x = 0; x < this.pixel; x++) {
             for (let y = 0; y < this.pixel; y++) {
