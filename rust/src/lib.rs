@@ -10,9 +10,9 @@ pub fn calc(pixel: u32, scale: f64, center_x: f64, center_y: f64) -> Vec<u8> {
         for y in 0..pixel {
             let c_re: f64 = (x as f64)*scale/(pixel as f64) - scale/2.0 + center_x;
             let c_im = (y as f64)*scale/(pixel as f64) - scale/2.0 + center_y;
+            let color = color(c_re, c_im);
             let pixel = image.get_pixel_mut(x, y);
-            let image::Rgb(data) = *pixel;
-            *pixel = image::Rgb([color(c_re, c_im), data[1], data[2]]);
+            *pixel = image::Rgb(color);
         }
     }
 
@@ -22,7 +22,7 @@ pub fn calc(pixel: u32, scale: f64, center_x: f64, center_y: f64) -> Vec<u8> {
     return buffer;
 }
 
-pub fn color(c_re: f64, c_im: f64) -> u8 {
+pub fn color(c_re: f64, c_im: f64) -> [u8; 3] {
     let mut n = 0;
     let mut re: f64 = 0.0;
     let mut im: f64 = 0.0;
@@ -33,9 +33,9 @@ pub fn color(c_re: f64, c_im: f64) -> u8 {
         im = new_im;
         let distance = re*re + im*im;
         if distance > 4.0 {
-            return 255;
+            return [255, 255, 255];
         }
         n += 1;
     }
-    return 0;
+    return [0, 0, 0];
 }

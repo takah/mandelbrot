@@ -40,7 +40,7 @@ async function drawJS() {
 }
 
 async function drawRust() {
-    const rust = new MandelbrotRust("img_for_rust", 200, 3, 0, 0)
+    const rust = new MandelbrotRust("canvas_for_rust", 200, 3, 0, 0)
     await rust.draw()
     showTimeElapsed("time_of_rust", rust.timeElapsed)
 }
